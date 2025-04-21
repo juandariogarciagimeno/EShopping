@@ -1,0 +1,9 @@
+﻿global using EShopping.Shared.BuildingBlocks.CQRS;
+global using EShopping.Catalog.Data.Models;
+global using Microsoft.AspNetCore.Routing;
+global using Microsoft.AspNetCore.Builder;
+global using Microsoft.AspNetCore.Http;
+global using EShopping.Shared.BuildingBlocks.Exceptions;
+global using Carter;
+global using MediatR;
+global using Mapster;

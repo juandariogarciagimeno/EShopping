@@ -1,0 +1,12 @@
+services:
+  catalogdb:
+    image: postgres:latest
+
+  eshopping.catalog.api:
+    image: ${DOCKER_REGISTRY-}eshoppingcatalogapi
+    build:
+      context: .
+      dockerfile: Services/Catalog/EShopping.Catalog.Api/Dockerfile
+
+volumes:
+  postgres_catalog:
