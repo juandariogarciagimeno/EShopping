@@ -4,11 +4,14 @@
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
       "composeLaunchAction": "LaunchBrowser",
-      "composeLaunchServiceName": "eshopping.catalog.api",
+      "composeLaunchServiceName": "eshopping.basket.api",
       "composeLaunchUrl": "{Scheme}://localhost:{ServicePort}/swagger",
       "serviceActions": {
         "eshopping.catalog.api": "StartDebugging",
-        "catalogdb": "StartWithoutDebugging"
+        "catalogdb": "StartWithoutDebugging",
+        "eshopping.basket.api": "StartDebugging",
+        "basketdb": "StartWithoutDebugging",
+        "distributedcache": "StartWithoutDebugging"
       }
     }
   }

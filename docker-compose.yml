@@ -2,11 +2,26 @@ services:
   catalogdb:
     image: postgres:latest
 
+  basketdb:
+   image: postgres:latest
+
+  distributedcache:
+    image: redis:latest
+
   eshopping.catalog.api:
     image: ${DOCKER_REGISTRY-}eshoppingcatalogapi
     build:
       context: .
       dockerfile: Services/Catalog/EShopping.Catalog.Api/Dockerfile
 
+  eshopping.basket.api:
+    image: ${DOCKER_REGISTRY-}eshoppingbasketapi
+    build:
+      context: .
+      dockerfile: Services/Basket/EShopping.Basket.Api/Dockerfile
+
 volumes:
   postgres_catalog:
+  postgres_basket:
+
+

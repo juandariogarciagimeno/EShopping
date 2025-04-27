@@ -4,7 +4,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>774f0936-6ef5-423f-8250-789e9adc513c</UserSecretsId>
+    <UserSecretsId>8f2f6d7c-b03e-425e-99c0-5b77bdd5f328</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..\..</DockerfileContext>
     <DockerComposeProjectPath>..\..\..\docker-compose.dcproj</DockerComposeProjectPath>
@@ -12,15 +12,16 @@
 
   <ItemGroup>
     <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="9.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.2" />
+    <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="9.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Shared\EShopping.Shared.BuildingBlocks\EShopping.Shared.BuildingBlocks.csproj" />
     <ProjectReference Include="..\..\..\Shared\EShopping.Shared.Utils\EShopping.Shared.Utils.csproj" />
-    <ProjectReference Include="..\EShopping.Catalog.Data\EShopping.Catalog.Data.csproj" />
-    <ProjectReference Include="..\EShopping.Catalog.Features\EShopping.Catalog.Features.csproj" />
+    <ProjectReference Include="..\EShopping.Basket.Data\EShopping.Basket.Data.csproj" />
+    <ProjectReference Include="..\EShopping.Basket.Features\EShopping.Basket.Features.csproj" />
   </ItemGroup>
 
 </Project>

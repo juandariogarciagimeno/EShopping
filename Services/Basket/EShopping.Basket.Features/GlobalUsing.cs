@@ -1,0 +1,9 @@
+﻿global using EShopping.Basket.Data.Models;
+global using EShopping.Shared.BuildingBlocks.CQRS;
+global using Carter;
+global using Microsoft.AspNetCore.Routing;
+global using MediatR;
+global using Microsoft.AspNetCore.Builder;
+global using Mapster;
+global using Microsoft.AspNetCore.Http;
+global using FluentValidation;

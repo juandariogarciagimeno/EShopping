@@ -14,6 +14,11 @@
             return new NotFoundException($"Product with id {id} not found.");
         }
 
+        public static NotFoundException Basket(string userName)
+        {
+            return new NotFoundException($"Basket for UserName {userName} not found.");
+        }
+
         public static NotFoundException Create<TType, TKey>(TKey id)
         {
             return new NotFoundException($"Entity of type {typeof(TType).Name} with id {id} not found.");
