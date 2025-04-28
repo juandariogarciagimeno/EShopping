@@ -20,8 +20,15 @@ services:
       context: .
       dockerfile: Services/Basket/EShopping.Basket.Api/Dockerfile
 
+  eshopping.discount.grpc:
+    image: ${DOCKER_REGISTRY-}eshoppingdiscountgrpc
+    build:
+      context: .
+      dockerfile: Services/Discount/EShopping.Discount.Grpc/Dockerfile
+
 volumes:
   postgres_catalog:
   postgres_basket:
 
-
+networks:
+  eshopping:

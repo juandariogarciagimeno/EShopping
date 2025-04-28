@@ -13,6 +13,9 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Services/Discount/EShopping.Discount.Grpc/EShopping.Discount.Grpc.csproj", "Services/Discount/EShopping.Discount.Grpc/"]
+COPY ["Shared/EShopping.Shared.BuildingBlocks/EShopping.Shared.BuildingBlocks.csproj", "Shared/EShopping.Shared.BuildingBlocks/"]
+COPY ["Shared/EShopping.Shared.Utils/EShopping.Shared.Utils.csproj", "Shared/EShopping.Shared.Utils/"]
+COPY ["Services/Discount/EShopping.Discount.Data/EShopping.Discount.Data.csproj", "Services/Discount/EShopping.Discount.Data/"]
 RUN dotnet restore "./Services/Discount/EShopping.Discount.Grpc/EShopping.Discount.Grpc.csproj"
 COPY . .
 WORKDIR "/src/Services/Discount/EShopping.Discount.Grpc"
@@ -27,4 +30,4 @@ RUN dotnet publish "./EShopping.Discount.Grpc.csproj" -c $BUILD_CONFIGURATION -o
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "EShopping.Discount.Grpc.dll"]
+ENTRYPOINT ["dotnet", "EShopping.Discount.Grpc.dll", "--server.urls", "http://+:8080;https://+:8081"]

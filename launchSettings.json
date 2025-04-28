@@ -3,15 +3,15 @@
     "Docker Compose": {
       "commandName": "DockerCompose",
       "commandVersion": "1.0",
-      "composeLaunchAction": "LaunchBrowser",
-      "composeLaunchServiceName": "eshopping.basket.api",
-      "composeLaunchUrl": "{Scheme}://localhost:{ServicePort}/swagger",
+      "composeLaunchAction": "None",
+      "composeLaunchServiceName": "eshopping.discount.grpc",
       "serviceActions": {
         "eshopping.catalog.api": "StartDebugging",
         "catalogdb": "StartWithoutDebugging",
         "eshopping.basket.api": "StartDebugging",
         "basketdb": "StartWithoutDebugging",
-        "distributedcache": "StartWithoutDebugging"
+        "distributedcache": "StartWithoutDebugging",
+        "eshopping.discount.grpc": "StartDebugging"
       }
     }
   }

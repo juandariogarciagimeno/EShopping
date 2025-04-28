@@ -1,17 +1,17 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Carter;
 using EShopping.Shared.BuildingBlocks.Behaviours;
-using FluentValidation;
-using Microsoft.AspNetCore.Builder;
+using Grpc.Net.Client;
+using static EShopping.Discount.Grpc.Discount;
+using Microsoft.Extensions.Configuration;
 
 
 namespace EShopping.Basket.Features
 {
     public static class DependencyContainer
     {
-        public static IServiceCollection AddFeatures(this IServiceCollection services)
+        public static IServiceCollection AddFeatures(this IServiceCollection services, IConfiguration config)
         {
-            return services
+            services
                 .AddCarter(new DependencyContextAssemblyCatalog([typeof(DependencyContainer).Assembly]))
                 .AddMediatR(cfg =>
                 {
@@ -19,7 +19,13 @@ namespace EShopping.Basket.Features
                     cfg.AddOpenBehavior(typeof(ValidationBehahviour<,>));
                     cfg.AddOpenBehavior(typeof(LoggingBehaviour<,>));
                 })
-                .AddValidatorsFromAssembly(typeof(DependencyContainer).Assembly);
+                .AddValidatorsFromAssembly(typeof(DependencyContainer).Assembly)
+                .AddGrpcClient<DiscountClient>(options =>
+                {
+                    options.Address = Uri.TryCreate(config.GetConnectionString("Discount"), UriKind.Absolute, out Uri? uri) ? uri : throw new Exception("Invalid discount service uri");
+                });
+
+            return services;
         }
 
         public static WebApplication MapFeatures(this WebApplication app)

@@ -3,12 +3,11 @@ using EShopping.Basket.Features;
 using EShopping.Shared.BuildingBlocks.Exceptions.Handler;
 using EShopping.Shared.Utils;
 using HealthChecks.UI.Client;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddOpenApi();
-builder.Services.AddFeatures();
+builder.Services.AddFeatures(builder.Configuration);
 builder.Services.AddOpenApiExplorer(builder.Configuration);
 builder.Services.AddDataAccess(builder.Configuration);
 builder.Services.AddSerilogFromConfiguration(builder.Configuration);
