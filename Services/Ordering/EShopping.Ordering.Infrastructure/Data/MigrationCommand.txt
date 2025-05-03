@@ -1,0 +1,4 @@
+Add-Migration InitialCreate -p EShopping.Ordering.Infrastructure -s EShopping.Ordering.Api -OutputDir Data/Migrations
+
+
+Update-Database -Connection "Server=127.0.0.1,1433;Database=OrderDb;User Id=sa;Password=Abc12345678;Encrypt=False;TrustServerCertificate=True"

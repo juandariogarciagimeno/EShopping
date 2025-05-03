@@ -9,6 +9,11 @@
         {
         }
 
+        public static NotFoundException Order(Guid id)
+        {
+            return new NotFoundException($"Order with id {id} not found.");
+        }
+
         public static NotFoundException Product(Guid id)
         {
             return new NotFoundException($"Product with id {id} not found.");

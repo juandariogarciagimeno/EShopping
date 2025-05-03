@@ -1,0 +1,11 @@
+﻿global using EShopping.Ordering.Application.Dtos;
+global using EShopping.Shared.BuildingBlocks.CQRS;
+global using FluentValidation;
+global using EShopping.Ordering.Domain.Models;
+global using EShopping.Ordering.Application.Data;
+global using EShopping.Ordering.Domain.ValueObjects;
+global using EShopping.Ordering.Application.Extensions;
+global using EShopping.Shared.BuildingBlocks.Exceptions;
+global using EShopping.Ordering.Domain.Events;
+global using MediatR;
+global using Microsoft.Extensions.Logging;

@@ -8,6 +8,9 @@ services:
   distributedcache:
     image: redis:latest
 
+  orderdb:
+    image: mcr.microsoft.com/mssql/server
+
   eshopping.catalog.api:
     image: ${DOCKER_REGISTRY-}eshoppingcatalogapi
     build:
