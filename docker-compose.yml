@@ -11,6 +11,9 @@ services:
   orderdb:
     image: mcr.microsoft.com/mssql/server
 
+  messagebroker:
+    image: rabbitmq:management
+
   eshopping.catalog.api:
     image: ${DOCKER_REGISTRY-}eshoppingcatalogapi
     build:
@@ -28,6 +31,12 @@ services:
     build:
       context: .
       dockerfile: Services/Discount/EShopping.Discount.Grpc/Dockerfile
+
+  eshopping.ordering.api:
+    image: ${DOCKER_REGISTRY-}eshoppingorderingapi
+    build:
+      context: .
+      dockerfile: Services/Ordering/EShopping.Ordering.Api/Dockerfile
 
 volumes:
   postgres_catalog:

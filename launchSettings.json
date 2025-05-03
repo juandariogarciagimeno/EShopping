@@ -11,7 +11,8 @@
         "eshopping.basket.api": "StartDebugging",
         "basketdb": "StartWithoutDebugging",
         "distributedcache": "StartWithoutDebugging",
-        "eshopping.discount.grpc": "StartDebugging"
+        "eshopping.discount.grpc": "StartDebugging",
+        "eshopping.ordering.api": "StartDebugging"
       }
     }
   }

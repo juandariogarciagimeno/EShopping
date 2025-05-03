@@ -13,6 +13,12 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Services/Ordering/EShopping.Ordering.Api/EShopping.Ordering.Api.csproj", "Services/Ordering/EShopping.Ordering.Api/"]
+COPY ["Shared/EShopping.Shared.BuildingBlocks/EShopping.Shared.BuildingBlocks.csproj", "Shared/EShopping.Shared.BuildingBlocks/"]
+COPY ["Shared/EShopping.Shared.Utils/EShopping.Shared.Utils.csproj", "Shared/EShopping.Shared.Utils/"]
+COPY ["Services/Ordering/EShopping.Ordering.Application/EShopping.Ordering.Application.csproj", "Services/Ordering/EShopping.Ordering.Application/"]
+COPY ["Shared/EShopping.Shared.BuildingBlocks.Messaging/EShopping.Shared.BuildingBlocks.Messaging.csproj", "Shared/EShopping.Shared.BuildingBlocks.Messaging/"]
+COPY ["Services/Ordering/EShopping.Ordering.Domain/EShopping.Ordering.Domain.csproj", "Services/Ordering/EShopping.Ordering.Domain/"]
+COPY ["Services/Ordering/EShopping.Ordering.Infrastructure/EShopping.Ordering.Infrastructure.csproj", "Services/Ordering/EShopping.Ordering.Infrastructure/"]
 RUN dotnet restore "./Services/Ordering/EShopping.Ordering.Api/EShopping.Ordering.Api.csproj"
 COPY . .
 WORKDIR "/src/Services/Ordering/EShopping.Ordering.Api"

@@ -1,13 +1,18 @@
-﻿namespace EShopping.Ordering.Application.Orders.EventHandlers.Domain;
+﻿using MassTransit;
+using Microsoft.FeatureManagement;
 
-public class OrderCreatedEventHandler(ILogger<OrderCreatedEventHandler> logger) : INotificationHandler<OrderCreatedEvent>
+namespace EShopping.Ordering.Application.Orders.EventHandlers.Domain;
+
+public class OrderCreatedEventHandler(ILogger<OrderCreatedEventHandler> logger, IPublishEndpoint publishEndpoint, IFeatureManager featureManager) : INotificationHandler<OrderCreatedEvent>
 {
-    public Task Handle(OrderCreatedEvent notification, CancellationToken cancellationToken)
+    public async Task Handle(OrderCreatedEvent notification, CancellationToken cancellationToken)
     {
-        logger.LogInformation("Domain event {DomainEvent} handled", notification.GetType().Name);
+        if (await featureManager.IsEnabledAsync("OrderFullfilment"))
+        {
+            logger.LogInformation("Domain event {DomainEvent} handled", notification.GetType().Name);
 
-        //send email to customer
-
-        return Task.CompletedTask;
+            var orderCreatedIntegrationEvent = notification.Order.ToOrderDto();
+            await publishEndpoint.Publish(orderCreatedIntegrationEvent, cancellationToken);
+        }
     }
 }

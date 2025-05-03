@@ -3,6 +3,9 @@ using EShopping.Shared.BuildingBlocks.Behaviours;
 using Grpc.Net.Client;
 using static EShopping.Discount.Grpc.Discount;
 using Microsoft.Extensions.Configuration;
+using EShopping.Shared.BuildingBlocks.Messaging;
+using EShopping.Shared.BuildingBlocks.Messaging.MassTransit;
+using MassTransit;
 
 
 namespace EShopping.Basket.Features
@@ -24,6 +27,8 @@ namespace EShopping.Basket.Features
                 {
                     options.Address = Uri.TryCreate(config.GetConnectionString("Discount"), UriKind.Absolute, out Uri? uri) ? uri : throw new Exception("Invalid discount service uri");
                 });
+
+            services.AddMessageBroker(config);
 
             return services;
         }
