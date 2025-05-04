@@ -19,7 +19,6 @@ namespace EShopping.Ordering.Api
         public static WebApplication UseApiServices(this WebApplication app)
         {
             app.MapCarter();
-            app.UseHttpsRedirection();
             app.UseHealthChecks("/health", new HealthCheckOptions()
             {
                 ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse

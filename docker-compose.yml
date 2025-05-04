@@ -38,9 +38,16 @@ services:
       context: .
       dockerfile: Services/Ordering/EShopping.Ordering.Api/Dockerfile
 
+  eshopping.yarpapigateway:
+    image: ${DOCKER_REGISTRY-}eshoppingyarpapigateway
+    build:
+      context: .
+      dockerfile: ApiGatetways/EShopping.YarpApiGateway/Dockerfile
+
 volumes:
   postgres_catalog:
   postgres_basket:
 
 networks:
   eshopping:
+

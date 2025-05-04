@@ -12,7 +12,8 @@
         "basketdb": "StartWithoutDebugging",
         "distributedcache": "StartWithoutDebugging",
         "eshopping.discount.grpc": "StartDebugging",
-        "eshopping.ordering.api": "StartDebugging"
+        "eshopping.ordering.api": "StartDebugging",
+        "eshopping.yarpapigateway": "StartDebugging"
       }
     }
   }

@@ -27,7 +27,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseExceptionHandler(opts => { });
-app.UseHttpsRedirection();
 app.UseHealthChecks("/health", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions()
 {
     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,

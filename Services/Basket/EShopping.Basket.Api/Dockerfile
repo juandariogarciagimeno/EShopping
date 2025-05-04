@@ -31,4 +31,4 @@ RUN dotnet publish "./EShopping.Basket.Api.csproj" -c $BUILD_CONFIGURATION -o /a
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "EShopping.Basket.Api.dll", "--server.urls", "http://+:8080;https://+:8081]
+ENTRYPOINT ["dotnet", "EShopping.Basket.Api.dll"]

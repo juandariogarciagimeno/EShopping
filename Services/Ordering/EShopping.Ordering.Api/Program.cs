@@ -1,10 +1,7 @@
 using EShopping.Ordering.Api;
 using EShopping.Ordering.Application;
 using EShopping.Ordering.Infrastructure;
-using EShopping.Shared.BuildingBlocks.Exceptions.Handler;
 using EShopping.Shared.Utils;
-using HealthChecks.UI.Client;
-using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
 
