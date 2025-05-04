@@ -165,6 +165,7 @@
       - eshopping
 
   eshopping.yarpapigateway:
+    container_name: eshopping.yarpapigateway
     environment:
       - ASPNETCORE_ENVIRONMENT=Docker
       - ASPNETCORE_HTTP_PORTS=8080
