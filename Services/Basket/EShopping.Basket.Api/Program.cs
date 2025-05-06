@@ -33,7 +33,6 @@ app.UseHealthChecks("/health", new Microsoft.AspNetCore.Diagnostics.HealthChecks
     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
 });
 app.UseExceptionHandler(opts => { });
-app.UseHttpsRedirection();
 app.MapFeatures();
 
 

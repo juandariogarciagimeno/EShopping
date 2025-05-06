@@ -13,7 +13,8 @@
         "distributedcache": "StartWithoutDebugging",
         "eshopping.discount.grpc": "StartDebugging",
         "eshopping.ordering.api": "StartDebugging",
-        "eshopping.yarpapigateway": "StartDebugging"
+        "eshopping.yarpapigateway": "StartDebugging",
+        "eshopping.web": "StartDebugging"
       }
     }
   }

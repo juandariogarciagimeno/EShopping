@@ -22,7 +22,7 @@ namespace EShopping.Catalog.Features.Products.GetProductById
         public async Task<IResult> Handle(Guid id, ISender sender)
         {
             var result = await sender.Send(new GetProductByIdQuery(id));
-            var response = result.Adapt<GetProductsResponse>();
+            var response = result.Adapt<GetProductByIdResponse>();
             return Results.Ok(response);
         }
     }

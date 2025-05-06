@@ -44,10 +44,17 @@ services:
       context: .
       dockerfile: ApiGatetways/EShopping.YarpApiGateway/Dockerfile
 
+  eshopping.web:
+    image: ${DOCKER_REGISTRY-}eshoppingweb
+    build:
+      context: .
+      dockerfile: WebApps/EShopping.Web/Dockerfile
+
 volumes:
   postgres_catalog:
   postgres_basket:
 
 networks:
   eshopping:
+
 
