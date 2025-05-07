@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.RateLimiting;
+using EShopping.Shared.Utils;
+using EShopping.Shared.Utils.Tracing;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,8 +15,12 @@ builder.Services.AddRateLimiter(rateLimiterOptions =>
         options.PermitLimit = 5;
     });
 });
+builder.Services.AddTraceLogger(true);
+builder.UseSerilogWithSeqSinkAndHttpEnricher();
 
 var app = builder.Build();
+
+app.UseTraceLogger(true);
 
 app.MapReverseProxy();
 app.UseRateLimiter();

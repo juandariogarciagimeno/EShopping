@@ -14,7 +14,31 @@
         "eshopping.discount.grpc": "StartDebugging",
         "eshopping.ordering.api": "StartDebugging",
         "eshopping.yarpapigateway": "StartDebugging",
-        "eshopping.web": "StartDebugging"
+        "eshopping.web": "StartDebugging",
+        "messagebroker": "StartWithoutDebugging",
+        "orderdb": "StartWithoutDebugging",
+        "seq": "StartWithoutDebugging"
+      }
+    },
+    "Catalog": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "composeLaunchAction": "LaunchBrowser",
+      "composeLaunchServiceName": "eshopping.catalog.api",
+      "composeLaunchUrl": "{Scheme}://localhost:{ServicePort}/swagger",
+      "serviceActions": {
+        "basketdb": "DoNotStart",
+        "catalogdb": "StartWithoutDebugging",
+        "distributedcache": "DoNotStart",
+        "eshopping.basket.api": "DoNotStart",
+        "eshopping.catalog.api": "StartDebugging",
+        "eshopping.discount.grpc": "DoNotStart",
+        "eshopping.ordering.api": "DoNotStart",
+        "eshopping.web": "DoNotStart",
+        "eshopping.yarpapigateway": "DoNotStart",
+        "messagebroker": "DoNotStart",
+        "orderdb": "DoNotStart",
+        "seq": "DoNotStart"
       }
     }
   }

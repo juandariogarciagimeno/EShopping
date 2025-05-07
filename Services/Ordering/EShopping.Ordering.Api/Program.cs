@@ -9,7 +9,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services
     .AddApplicationServices(builder.Configuration)
     .AddInfrastructureServices(builder.Configuration)
-    .AddApiServices();
+    .AddApiServices(builder.Configuration);
+
+builder.UseSerilogWithSeqSinkAndHttpEnricher();
 
 if (builder.Environment.IsDevelopment())
 {

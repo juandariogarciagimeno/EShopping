@@ -16,4 +16,8 @@
     <PackageReference Include="Yarp.ReverseProxy" Version="2.3.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\EShopping.Shared.Utils\EShopping.Shared.Utils.csproj" />
+  </ItemGroup>
+
 </Project>

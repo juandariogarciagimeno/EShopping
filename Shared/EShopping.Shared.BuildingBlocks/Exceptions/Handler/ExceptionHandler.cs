@@ -40,6 +40,7 @@ namespace EShopping.Shared.BuildingBlocks.Exceptions.Handler
             };
 
             problemDetails.Extensions.Add("traceId", context.TraceIdentifier);
+            problemDetails.Extensions.Add("trace", context.Request.Headers.TryGetValue("X-Trace-Id", out var t) == true ? t.ToString() : string.Empty);
 
             if (exception is ValidationException validationException)
             {

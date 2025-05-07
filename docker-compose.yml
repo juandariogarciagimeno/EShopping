@@ -50,6 +50,9 @@ services:
       context: .
       dockerfile: WebApps/EShopping.Web/Dockerfile
 
+
+  seq:
+    image: datalust/seq
 volumes:
   postgres_catalog:
   postgres_basket:

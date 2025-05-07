@@ -15,6 +15,7 @@ namespace EShopping.Basket.Features
         public static IServiceCollection AddFeatures(this IServiceCollection services, IConfiguration config)
         {
             services
+                .AddSingleton<MetadataInterceptor>()
                 .AddCarter(new DependencyContextAssemblyCatalog([typeof(DependencyContainer).Assembly]))
                 .AddMediatR(cfg =>
                 {
@@ -26,7 +27,8 @@ namespace EShopping.Basket.Features
                 .AddGrpcClient<DiscountClient>(options =>
                 {
                     options.Address = Uri.TryCreate(config.GetConnectionString("Discount"), UriKind.Absolute, out Uri? uri) ? uri : throw new Exception("Invalid discount service uri");
-                });
+                })
+                .AddInterceptor<MetadataInterceptor>();
 
             services.AddMessageBroker(config);
 

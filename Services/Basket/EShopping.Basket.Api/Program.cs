@@ -10,10 +10,11 @@ builder.Services.AddOpenApi();
 builder.Services.AddFeatures(builder.Configuration);
 builder.Services.AddOpenApiExplorer(builder.Configuration);
 builder.Services.AddDataAccess(builder.Configuration);
-builder.Services.AddSerilogFromConfiguration(builder.Configuration);
 builder.Services.AddExceptionHandler<ExceptionHandler>();
 builder.Services.AddHealthChecks();
 builder.Services.AddDataAccessHealthChecks(builder.Configuration);
+builder.Services.AddTraceLogger();
+builder.UseSerilogWithSeqSinkAndHttpEnricher();
 
 if (builder.Environment.IsDevelopment())
 {
@@ -21,6 +22,9 @@ if (builder.Environment.IsDevelopment())
 }
 
 var app = builder.Build();
+
+app.UseExceptionHandler(opts => { });
+app.UseTraceLogger();
 
 if (app.Environment.IsDevelopment())
 {
@@ -32,7 +36,7 @@ app.UseHealthChecks("/health", new Microsoft.AspNetCore.Diagnostics.HealthChecks
 {
     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
 });
-app.UseExceptionHandler(opts => { });
+
 app.MapFeatures();
 
 
