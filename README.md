@@ -66,7 +66,7 @@ Integrated **Serilog** and **OpenTelemetry** across all microservices, connected
 
 - **Serilog**: Provides structured logging with enriched context.
 - **OpenTelemetry**: Enables distributed tracing across services.
-- **Seq**: Centralized log server accessible at `http://localhost:5341`.
+- **Seq**: Centralized log server accessible at `http://localhost:6969`.
 
 > Ensure the Seq server is running via Docker Compose for full observability features.
 
@@ -89,8 +89,13 @@ docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
 ```
 
 ### Access the Services
-- **WebUI**: `http://localhost:5000`
-- **Seq (Logs Dashboard)**: `http://localhost:5341`
+- **Catalog**: `https://localhost:6060`
+- **Basket**: `https://localhost:6061`
+- **Discount**: `https://localhost:6062`
+- **Ordering**: `https://localhost:6063`
+- **Yarp**: `https://localhost:6064`
+- **WebUI**: `https://localhost:6065`
+- **Seq (Logs Dashboard)**: `http://localhost:6969`
 - **RabbitMQ Management**: `http://localhost:15672` (default credentials: guest/guest)
 
 > Some services may take a few moments to initialize. Monitor the logs for readiness.
@@ -102,7 +107,7 @@ docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
 Use tools like [Postman](https://www.postman.com/) or `curl` to interact with the APIs exposed by the microservices via the YARP API Gateway.
 
 ```bash
-curl http://localhost:5000/api/v1/catalog
+curl https://localhost:6064/catalog-service/products
 ```
 
 ---
@@ -112,12 +117,6 @@ curl http://localhost:5000/api/v1/catalog
 - [Serilog](https://serilog.net/)
 - [OpenTelemetry for .NET](https://opentelemetry.io/docs/instrumentation/net/)
 - [Seq Logging Server](https://datalust.co/seq)
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Fork the repository and submit a pull request for any enhancements or bug fixes.
 
 ---
 
