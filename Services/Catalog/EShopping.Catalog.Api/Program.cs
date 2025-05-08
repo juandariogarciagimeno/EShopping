@@ -10,7 +10,8 @@ builder.Services.AddExceptionHandler<ExceptionHandler>();
 
 builder.Services.AddTraceLogger();
 
-builder.UseSerilogWithSeqSinkAndHttpEnricher();
+builder.UseSerilog();
+builder.AddOpenTelemetry();
 
 builder.AddDataAccess(builder.Configuration);
 builder.Services.AddDataAccessHealthChecks(builder.Configuration);

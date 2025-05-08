@@ -14,7 +14,8 @@ builder.Services.AddExceptionHandler<ExceptionHandler>();
 builder.Services.AddHealthChecks();
 builder.Services.AddDataAccessHealthChecks(builder.Configuration);
 builder.Services.AddTraceLogger();
-builder.UseSerilogWithSeqSinkAndHttpEnricher();
+builder.UseSerilog();
+builder.AddOpenTelemetry();
 
 if (builder.Environment.IsDevelopment())
 {

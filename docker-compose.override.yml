@@ -83,6 +83,8 @@
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/microservice.pfx
       - ASPNETCORE_Kestrel__Certificates__Default__Password=Abc123
       - Seq__Url=http://seq:5341
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://seq:5341/ingest/otlp/v1/traces
+      - OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
     depends_on:
       - catalogdb
       - seq
@@ -114,6 +116,8 @@
       - MessageBroker__UserName=guest
       - MessageBroker__Password=guest
       - Seq__Url=http://seq:5341
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://seq:5341/ingest/otlp/v1/traces
+      - OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
     depends_on:
       - basketdb
       - distributedcache
@@ -143,6 +147,8 @@
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/microservice.pfx
       - ASPNETCORE_Kestrel__Certificates__Default__Password=Abc123
       - Seq__Url=http://seq:5341
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://seq:5341/ingest/otlp/v1/traces
+      - OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
     depends_on:
       - seq
     ports:
@@ -170,6 +176,8 @@
       - MessageBroker__UserName=guest
       - MessageBroker__Password=guest
       - Seq__Url=http://seq:5341
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://seq:5341/ingest/otlp/v1/traces
+      - OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
     depends_on:
       - orderdb
       - messagebroker
@@ -195,6 +203,8 @@
       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/microservice.pfx
       - ASPNETCORE_Kestrel__Certificates__Default__Password=Abc123
       - Seq__Url=http://seq:5341
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://seq:5341/ingest/otlp/v1/traces
+      - OTEL_EXPORTER_OTLP_PROTOCOL=http/protobuf
     depends_on:
       - seq
     ports:

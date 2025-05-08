@@ -10,7 +10,8 @@ builder.Services.AddGrpc();
 builder.Services.AddDataAccess(builder.Configuration);
 builder.Services.AddTraceLogger();
 
-builder.UseSerilogWithSeqSinkAndHttpEnricher();
+builder.UseSerilog();
+builder.AddOpenTelemetry();
 
 var app = builder.Build();
 

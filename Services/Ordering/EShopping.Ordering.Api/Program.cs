@@ -11,7 +11,8 @@ builder.Services
     .AddInfrastructureServices(builder.Configuration)
     .AddApiServices(builder.Configuration);
 
-builder.UseSerilogWithSeqSinkAndHttpEnricher();
+builder.UseSerilog();
+builder.AddOpenTelemetry();
 
 if (builder.Environment.IsDevelopment())
 {

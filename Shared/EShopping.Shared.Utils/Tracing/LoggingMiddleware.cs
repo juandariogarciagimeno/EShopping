@@ -9,18 +9,12 @@ public class LoggingMiddleware : IMiddleware
 {
     public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
-        string traceId = context.Request.Headers.TryGetValue("x-trace-id", out var traceIdHeader) ? traceIdHeader.ToString() : string.Empty;
-        if (!string.IsNullOrEmpty(traceId))
-        {
-            LogContext.PushProperty("TraceId", traceId);
+        var logger = context.RequestServices.GetService<ILogger<LoggingMiddleware>>();
 
-            var logger = context.RequestServices.GetService<ILogger<LoggingMiddleware>>();
+        logger?.LogInformation("IN Request: {Method} {Path}", context.Request.Method, context.Request.Path);
 
-            logger?.LogInformation("IN Request: {TraceId} {Method} {Path}", traceId, context.Request.Method, context.Request.Path);
+        await next(context);
 
-            await next(context);
-
-            logger?.LogInformation("OUT Request: {TraceId} {Method} {Path}", traceId, context.Request.Method, context.Request.Path);
-        }
+        logger?.LogInformation("OUT Request: {Method} {Path}", context.Request.Method, context.Request.Path);
     }
 }
